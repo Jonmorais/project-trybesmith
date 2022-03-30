@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import UserService from '../services/userServices';
+import jwtGenerator from '../middlewares/jwtGenerator';
 
 class UserController {
   constructor(private userService = new UserService()) {}
@@ -9,7 +10,12 @@ class UserController {
 
     const newUser = await this.userService.create(user);
 
-    return res.status(201).json(newUser);
+    const token = jwtGenerator({
+      username: newUser.username,
+      classe: newUser.classe,
+    });
+
+    return res.status(201).json({ token });
   };
 }
 

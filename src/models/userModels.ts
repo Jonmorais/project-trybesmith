@@ -9,11 +9,11 @@ class UserModel {
   }
 
   public async create(user: User): Promise<number> {
-    const { username, classe, level } = user;
+    const { username, password, classe, level } = user;
 
     const [result] = await this.connection.execute<ResultSetHeader>(
-      'INSERT INTO Trybesmith.Users (username, classe, level) VALUES (?, ?, ?)',
-      [username, classe, level],
+      'INSERT INTO Trybesmith.Users (username, password, classe, level) VALUES (?, ?, ?, ?)',
+      [username, password, classe, level],
     );
 
     const { insertId } = result;
