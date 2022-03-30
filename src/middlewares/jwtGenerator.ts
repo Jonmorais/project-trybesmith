@@ -4,7 +4,7 @@ const jwtConfig = {
   expiresIn: '3d',
 };
 
-const SECRET: string | undefined = process.env.JWT_SECRET || '';
+const SECRET: string | undefined = process.env.JWT_SECRET || 'randomSecret?';
 
 const newToken = (data: object = {}) => jwt.sign({ data }, SECRET, jwtConfig);
 
