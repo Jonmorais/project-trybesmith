@@ -1,4 +1,5 @@
-# Habilidades
+# Habilidades utilizadas nesse projeto
+- Javascript, Typescript, Node.js, MySQL
 
 - Declarar variáveis e funções com tipagens _Typescript_;
 
